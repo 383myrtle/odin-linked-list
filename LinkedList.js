@@ -7,6 +7,25 @@ export class LinkedList {
     this.size = 0;
   }
 
+  set head(newHead) {
+    this._head = newHead;
+  }
+  get head() {
+    return this._head;
+  }
+  set tail(newTail) {
+    this._tail = newTail;
+  }
+  get tail() {
+    return this._tail;
+  }
+  set size(newSize) {
+    this._size = newSize;
+  }
+  get size() {
+    return this._size;
+  }
+
   append(value) {
     if (this.size === 0) {
       this.head = new Node(value);
@@ -43,7 +62,7 @@ export class LinkedList {
     }
   }
 
-  contains(value){
+  contains(value) {
     let pointer = this.head;
     while (pointer !== null) {
       if (value === pointer.value) {
@@ -54,17 +73,24 @@ export class LinkedList {
     return false;
   }
 
-  insertAt(index, value){
+  insertAt(index, value) {
     const node = new Node(value);
     const prev = this.at(index);
     node.next = prev.next;
     prev.next = node;
   }
 
-  removeAt(index){
+  removeAt(index) {
+    if (index === 0) {
+      this.head = this.head.next;
+      return
+    }
     const node = this.at(index);
-    const prev = this.at(index-1);
+    const prev = this.at(index - 1);
     prev.next = node.next;
+    if (index === this.size - 1) {
+      this.tail = prev;
+    }
   }
 
   pop() {
