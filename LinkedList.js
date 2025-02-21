@@ -18,4 +18,15 @@ export class LinkedList {
     }
     this.size++;
   }
+
+  toString() {
+    let pointer = this.head;
+    let str = "";
+    while (pointer !== null) {
+      str = str + `(${pointer.value}) -> `;
+      pointer = pointer.next;
+    }
+    str += "null";
+    return str;
+  }
 }
