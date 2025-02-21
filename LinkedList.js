@@ -54,6 +54,19 @@ export class LinkedList {
     return false;
   }
 
+  insertAt(index, value){
+    const node = new Node(value);
+    const prev = this.at(index);
+    node.next = prev.next;
+    prev.next = node;
+  }
+
+  removeAt(index){
+    const node = this.at(index);
+    const prev = this.at(index-1);
+    prev.next = node.next;
+  }
+
   pop() {
     let pointer = this.head;
     const node = this.tail;
