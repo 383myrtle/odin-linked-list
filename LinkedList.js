@@ -73,6 +73,19 @@ export class LinkedList {
     return false;
   }
 
+  find(value) {
+    let pointer = this.head;
+    let index = 0;
+    while (pointer !== null) {
+      if (value === pointer.value) {
+        return index;
+      }
+      pointer = pointer.next;
+      index++;
+    }
+    return null;
+  }
+
   insertAt(index, value) {
     const node = new Node(value);
     const prev = this.at(index);
@@ -83,7 +96,7 @@ export class LinkedList {
   removeAt(index) {
     if (index === 0) {
       this.head = this.head.next;
-      return
+      return;
     }
     const node = this.at(index);
     const prev = this.at(index - 1);
