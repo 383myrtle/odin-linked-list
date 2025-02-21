@@ -19,6 +19,18 @@ export class LinkedList {
     this.size++;
   }
 
+  prepend(value) {
+    if (this.size === 0) {
+      this.head = new Node(value);
+      this.tail = this.head;
+    } else {
+      const node = new Node(value);
+      node.next = this.head;
+      this.head = node;
+    }
+    this.size++;
+  }
+
   toString() {
     let pointer = this.head;
     let str = "";
