@@ -43,6 +43,17 @@ export class LinkedList {
     }
   }
 
+  contains(value){
+    let pointer = this.head;
+    while (pointer !== null) {
+      if (value === pointer.value) {
+        return true;
+      }
+      pointer = pointer.next;
+    }
+    return false;
+  }
+
   pop() {
     let pointer = this.head;
     const node = this.tail;
