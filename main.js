@@ -77,7 +77,7 @@ async function main() {
         break;
       case "remove":
         response = await prompt(promptIndex);
-        list.removeAt(response.index);
+        list.removeAt(parseInt(response.index));
         break;
       case "print":
         console.log(list.toString());
